@@ -161,8 +161,10 @@
       elBtnComment.classList.add('d-none');
       } 
     });
+      const elCommentForm = document.getElementById('comment-form');
       const elCommentList = document.getElementById('comment-list');
       const elBtnSubmit = document.getElementById('btn-submit');
+      const elBtnCancel = document.getElementById('btn-cancel');
       const elInputUsername = document.getElementById('input-username');
       const elInputComment = document.getElementById('input-comment');
 
@@ -187,9 +189,20 @@
       if (elBtnSubmit.onclick = addcomment) {
         elCommentSection.classList.add('d-none');
         elBtnComment.classList.remove('d-none');
+        elCommentForm.reset();
       }
     });
-    }, false);
+    }, true);
+
+
+    elBtnCancel.addEventListener('click', () => {
+    const elCommentSection = document.getElementById('comment-form-section');
+    console.log(elBtnCancel);
+    elCommentSection.classList.add('d-none');
+    elBtnComment.classList.remove('d-none');
+    elCommentForm.reset();
+
+  });
       
         
       
@@ -202,7 +215,7 @@
       
       
      
-      const elBtnCancel = document.getElementById('btn-cancel');
+      
       
       // EDIT HERE
 
