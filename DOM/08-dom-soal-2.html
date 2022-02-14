@@ -51,13 +51,58 @@
             class="list-group list-group-flush overflow-auto"
             style="height: 220px"
           >
-            <!-- <li >
+            <li
+              class="
+                list-group-item
+                d-flex
+                justify-content-between
+                align-items-start
+              "
+            >
               <div class="ms-2 me-auto">
                 <div class="fw-bold text-capitalize">john watson</div>
                 Cras justo odio
               </div>
-            </li> -->
-           
+            </li>
+            <li
+              class="
+                list-group-item
+                d-flex
+                justify-content-between
+                align-items-start
+              "
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold text-capitalize">marry anne</div>
+                Cras justo odio
+              </div>
+            </li>
+            <li
+              class="
+                list-group-item
+                d-flex
+                justify-content-between
+                align-items-start
+              "
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold text-capitalize">sherlock holmes</div>
+                Cras justo odio
+              </div>
+            </li>
+            <li
+              class="
+                list-group-item
+                d-flex
+                justify-content-between
+                align-items-start
+              "
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold text-capitalize">james moriarty</div>
+                Cras justo odio
+              </div>
+            </li>
           </ul>
         </div>
         <div id="comment-form-section" class="col-12 d-none">
@@ -83,7 +128,7 @@
               ></textarea>
             </div>
             <div>
-              <button id="btn-submit" type="text" class="btn btn-primary">
+              <button id="btn-submit" type="submit" class="btn btn-primary">
                 submit
               </button>
               <button
@@ -121,18 +166,36 @@
       const elInputUsername = document.getElementById('input-username');
       const elInputComment = document.getElementById('input-comment');
 
+      elBtnSubmit.addEventListener("click", function(event){
       const addcomment = function(){
         const Username = elInputUsername.value;
         const comment = elInputComment.value;
         const li = document.createElement('li');
-
+        li.className = "list-group-item d-flex justify-content-between align-items-start"
         li.innerHTML = "<div class='ms-2 me-auto'>" + "<div class='fw-bold text-capitalize'>"
-                        + Username + "</div>" + comment + "</div>";
+                        + Username + "</div>" + comment + "</div>" + "</li>";
                         elCommentList.appendChild(li);
+                        elCommentList.insertBefore(li, elCommentList.firstChild);
                         
-      }
-      elBtnSubmit.onclick = addcomment;
+                        
       
+      }
+      event.preventDefault();
+      elBtnSubmit.onclick = addcomment; 
+      elBtnSubmit.addEventListener('click', () => {
+      const elCommentSection = document.getElementById('comment-form-section');
+      if (elBtnSubmit.onclick = addcomment) {
+        elCommentSection.classList.add('d-none');
+        elBtnComment.classList.remove('d-none');
+      }
+    });
+    }, false);
+      
+        
+      
+      
+      
+     
 
 
       const elCommentSection = document.getElementById('comment-form');
